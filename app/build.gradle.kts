@@ -42,7 +42,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15"
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtension.get()
     }
 }
 
@@ -58,17 +58,17 @@ dependencies {
     implementation(libs.androidx.compose.material3)
 
     // Firebase
-    implementation(platform("com.google.firebase:firebase-bom:33.1.2"))
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.android.gms:play-services-auth:21.2.0")
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth.ktx)
+    implementation(libs.gms.play.services.auth)
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.51.1")
-    ksp("com.google.dagger:hilt-compiler:2.51.1")
-    implementation("androidx.hilt:hilt-navigation-compose:1.2.0") // Added this line
+    implementation(libs.hilt.android.lib)
+    ksp(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
     // Kotlin Coroutines Play Services
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.10.2")
+    implementation(libs.kotlinx.coroutines.play.services)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
